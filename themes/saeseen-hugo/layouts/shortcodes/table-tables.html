@@ -1,0 +1,46 @@
+{{ with .Get "table" }}
+  {{ if eq . "table1" }}
+    <table>
+      <thead>
+        <tr>
+          <th>Jasa</th>
+          <th>Biaya (Rp)</th>
+          <th>Aplikasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $.Site.Params.tabelItems }}
+        <tr>
+          <td>{{ .name }}</td>
+          <td>{{ .price }}</td>
+          <td>{{ index $.Site.Params.appliList .name }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  {{ else if eq . "table2" }}
+    <table>
+      <thead>
+        <tr>
+          <th>Jasa</th>
+          <th>Biaya (Rp)</th>
+          <th>Kegunaan Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $.Site.Params.tabelItems }}
+        <tr>
+          <td>{{ .name }}</td>
+          <td>{{ .price }}</td>
+          <td>{{ index $.Site.Params.kegunaanList .name }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  {{ else }}
+    <p>Invalid table selection.</p>
+  {{ end }}
+{{ end }}
+<p class="price-info">
+  Biaya tertera sewaktu-waktu bisa berubah, untuk informasi biaya terbaru silahkan hubungi kami.
+</p>
