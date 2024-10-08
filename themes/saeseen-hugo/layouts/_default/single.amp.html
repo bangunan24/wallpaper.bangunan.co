@@ -41,7 +41,7 @@
   <meta name="twitter:url" content="{{ .Permalink }}">
   <meta name="twitter:title" content="{{ $ogTitle }}">
   <meta name="twitter:description" content="{{ $ogDescription }}">
-  {{- if .IsPage }}
+{{- if .IsPage }}
 {{ $page := . }}
   {{- $rating := add 4 (div (math.Mod (mul (now.Unix) 11) 10) 10) -}}
   {{- $ratingCount := add 50 (math.Mod (mul (now.Unix) 13) 951) -}}
@@ -53,7 +53,7 @@
   {{- $randomServiceType := index .Site.Params.service_types (mod (now.Unix) (len .Site.Params.service_types)) -}}
   {{- $randomCategory := index .Site.Params.categories (mod (now.Unix) (len .Site.Params.categories)) -}}
   {{- $randomPayment := index .Site.Params.payment_methods (mod (now.Unix) (len .Site.Params.payment_methods)) -}}
-    {{- $freeConsultation := .Site.Params.free_consultation -}}
+  {{- $freeConsultation := .Site.Params.free_consultation -}}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -91,13 +91,13 @@
       {{- end -}}
     },
     "areaServed": [
-  {{ range $index, $area := .Site.Params.area_served }}
-    {{ if $index }},{{ end }}{
-      "@type": "Country",
-      "name": "{{ $area }}"
-    }
-  {{ end }}
-],
+      {{ range $index, $area := .Site.Params.area_served }}
+        {{ if $index }},{{ end }}{
+          "@type": "Country",
+          "name": "{{ $area }}"
+        }
+      {{ end }}
+    ],
     "serviceType": "{{ $randomServiceType }}",
     "category": "{{ $randomCategory }}",
     "aggregateRating": {
@@ -107,7 +107,6 @@
       "bestRating": "5",
       "worstRating": "1"
     },
-    "searchKeywords": "{{ $allKeywords }}, {{ .Title }}",
     "termsOfService": {
       "@type": "DigitalDocument",
       "name": "Kebijakan Pembatalan",
