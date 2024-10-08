@@ -41,85 +41,98 @@
   <meta name="twitter:url" content="{{ .Permalink }}">
   <meta name="twitter:title" content="{{ $ogTitle }}">
   <meta name="twitter:description" content="{{ $ogDescription }}">
-{{- if .IsPage }}
-{{ $page := . }}
-  {{- $rating := add 4 (div (math.Mod (mul (now.Unix) 11) 10) 10) -}}
-  {{- $ratingCount := add 50 (math.Mod (mul (now.Unix) 13) 951) -}}
-  {{- $basePrice := .Site.Params.base_price -}}
-  {{- $priceRange := .Site.Params.price_range -}}
-  {{- $ := $basePrice -}}
-  {{- $maxPrice := add $basePrice $priceRange -}}
-  {{- $minPrice := sub $basePrice $priceRange -}}
-  {{- $randomServiceType := index .Site.Params.service_types (mod (now.Unix) (len .Site.Params.service_types)) -}}
-  {{- $randomCategory := index .Site.Params.categories (mod (now.Unix) (len .Site.Params.categories)) -}}
-  {{- $randomPayment := index .Site.Params.payment_methods (mod (now.Unix) (len .Site.Params.payment_methods)) -}}
-  {{- $freeConsultation := .Site.Params.free_consultation -}}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "{{ .Title }}",
-    "description": "{{ .Summary | plainify | truncate 160 }}",
-    "image": "{{ .Params.featured_image | absURL }}",
-    "provider": {
-      "@type": "Organization",
-      "name": "{{ .Site.Title }}"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "IDR",
-      "lowPrice": "{{ printf "%.2f" (div $minPrice 1.0) }}",
-      "highPrice": "{{ printf "%.2f" (div $maxPrice 1.0) }}",
-      "offerCount": "2",
-      "url": "{{ .Permalink }}",
-      "availability": "https://schema.org/InStock",
-      "acceptedPaymentMethod": {
-        "@type": "PaymentMethod",
-        "name": "{{ $randomPayment }}"
-      },
-      "seller": {
+  {{- if .IsPage }}
+  {{ $page := . }}
+    {{- $rating := add 4 (div (math.Mod (mul (now.Unix) 11) 10) 10) -}}
+    {{- $ratingCount := add 50 (math.Mod (mul (now.Unix) 13) 951) -}}
+    {{- $basePrice := .Site.Params.base_price -}}
+    {{- $priceRange := .Site.Params.price_range -}}
+    {{- $ := $basePrice -}}
+    {{- $maxPrice := add $basePrice $priceRange -}}
+    {{- $minPrice := sub $basePrice $priceRange -}}
+    {{- $randomServiceType := index .Site.Params.service_types (mod (now.Unix) (len .Site.Params.service_types)) -}}
+    {{- $randomCategory := index .Site.Params.categories (mod (now.Unix) (len .Site.Params.categories)) -}}
+    {{- $randomPayment := index .Site.Params.payment_methods (mod (now.Unix) (len .Site.Params.payment_methods)) -}}
+    {{- $freeConsultation := .Site.Params.free_consultation -}}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "{{ .Title }}",
+      "description": "{{ .Summary | plainify | truncate 160 }}",
+      "image": "{{ .Params.featured_image | absURL }}",
+      "provider": {
         "@type": "Organization",
         "name": "{{ .Site.Title }}"
-      }
-      {{- if $freeConsultation -}}
-      ,
-      "additionalProperty": {
-        "@type": "PropertyValue",
-        "name": "FreeConsultation",
-        "value": "Available"
-      }
-      {{- end -}}
-    },
-    "areaServed": [
-      {{ range $index, $area := .Site.Params.area_served }}
-        {{ if $index }},{{ end }}{
-          "@type": "Country",
-          "name": "{{ $area }}"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "IDR",
+        "lowPrice": "{{ printf "%.2f" (div $minPrice 1.0) }}",
+        "highPrice": "{{ printf "%.2f" (div $maxPrice 1.0) }}",
+        "offerCount": "2",
+        "url": "{{ .Permalink }}",
+        "availability": "https://schema.org/InStock",
+        "acceptedPaymentMethod": {
+          "@type": "PaymentMethod",
+          "name": "{{ $randomPayment }}"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "{{ .Site.Title }}"
         }
-      {{ end }}
-    ],
-    "serviceType": "{{ $randomServiceType }}",
-    "category": "{{ $randomCategory }}",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "{{ $rating }}",
-      "ratingCount": "{{ $ratingCount }}",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "termsOfService": {
-      "@type": "DigitalDocument",
-      "name": "Kebijakan Pembatalan",
-      "description": "{{ index .Site.Params.cancellation_policies (mod (now.Unix) (len .Site.Params.cancellation_policies)) }}"
-    },
-    "serviceOutput": {
-      "@type": "Thing",
-      "name": "Hasil",
-      "description": "{{ .Site.Params.service_output }}"
+        {{- if $freeConsultation -}}
+        ,
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "FreeConsultation",
+          "value": "Available"
+        }
+        {{- end -}}
+      },
+      "areaServed": [
+        {{ range $index, $area := .Site.Params.area_served }}
+          {{ if $index }},{{ end }}{
+            "@type": "Country",
+            "name": "{{ $area }}"
+          }
+        {{ end }}
+      ],
+      "serviceType": "{{ $randomServiceType }}",
+      "category": "{{ $randomCategory }}",
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "{{ $rating }}",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "{{ .Site.Title }}"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ $rating }}",
+        "ratingCount": "{{ $ratingCount }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "termsOfService": {
+        "@type": "DigitalDocument",
+        "name": "Kebijakan Pembatalan",
+        "description": "{{ index .Site.Params.cancellation_policies (mod (now.Unix) (len .Site.Params.cancellation_policies)) }}"
+      },
+      "serviceOutput": {
+        "@type": "Thing",
+        "name": "Hasil",
+        "description": "{{ .Site.Params.service_output }}"
+      }
     }
-  }
-  </script>
-{{- end }}
+    </script>
+  {{- end }}
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 <style amp-custom>
 :root {

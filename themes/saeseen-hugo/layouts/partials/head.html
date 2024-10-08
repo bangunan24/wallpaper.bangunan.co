@@ -73,7 +73,7 @@
       {{ if $index }},{{ end }}"{{ $service }}"
     {{ end }}
   ],
-  "additionalType": "https://schema.org/PaintingService",
+  "additionalType": "https://schema.org/Service",
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Customer Service",
@@ -153,6 +153,19 @@
       {{ end }}
     ],
     "category": "{{ $randomCategory }}",
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "{{ $rating }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "{{ .Site.Title }}"
+      }
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "{{ $rating }}",
@@ -160,7 +173,7 @@
       "bestRating": "5",
       "worstRating": "1"
     },
-    "termsOfService": "{{ .Site.BaseURL }}pages/terms-of-service",
+    "termsOfService": "{{ .Site.BaseURL }}terms-of-service",
     "serviceOutput": {
       "@type": "Thing",
       "name": "Hasil",
