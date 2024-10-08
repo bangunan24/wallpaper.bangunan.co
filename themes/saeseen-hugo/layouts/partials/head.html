@@ -80,7 +80,7 @@
     "telephone": "{{ .Site.Params.telepon | safeURL }}",
     "areaServed": "ID"
   },
-  "paymentAccepted": [
+  "acceptedPaymentMethod": [
     {{ range $index, $method := .Site.Params.payment_methods }}
       {{ if $index }},{{ end }}"{{ $method }}"
     {{ end }}
@@ -94,6 +94,7 @@
 </script>
 {{- end }}
 {{- if .IsPage }}
+{{ $page := . }}
   {{- $rating := add 4 (div (math.Mod (mul (now.Unix) 11) 10) 10) -}}
   {{- $ratingCount := add 50 (math.Mod (mul (now.Unix) 13) 951) -}}
   {{- $basePrice := .Site.Params.base_price -}}
@@ -105,7 +106,6 @@
   {{- $randomCategory := index .Site.Params.categories (mod (now.Unix) (len .Site.Params.categories)) -}}
   {{- $randomPayment := index .Site.Params.payment_methods (mod (now.Unix) (len .Site.Params.payment_methods)) -}}
   {{- $randomCancellationPolicy := index .Site.Params.cancellation_policies (mod (now.Unix) (len .Site.Params.cancellation_policies)) -}}
-  {{- $serviceId := printf "SRV-%d" (add 1000 (math.Mod (now.Unix) 9000)) -}}
   {{- $freeConsultation := .Site.Params.free_consultation -}}
   <script type="application/ld+json">
   {
@@ -127,7 +127,10 @@
       "offerCount": "2",
       "url": "{{ .Permalink }}",
       "availability": "https://schema.org/InStock",
-      "paymentAccepted": ["{{ $randomPayment }}"],
+      "acceptedPaymentMethod": {
+        "@type": "PaymentMethod",
+        "name": "{{ $randomPayment }}"
+      },
       "seller": {
         "@type": "Organization",
         "name": "{{ .Site.Title }}"
@@ -140,15 +143,15 @@
         "value": "Available"
       }
       {{- end -}}
- },
-"areaServed": [
-  {{ range $index, $area := .Site.Params.area_served }}
-    {{ if $index }},{{ end }}{
-      "@type": "Country",
-      "name": "{{ $area }}"
-    }
-  {{ end }}
-],
+    },
+    "areaServed": [
+      {{ range $index, $area := .Site.Params.area_served }}
+        {{ if $index }},{{ end }}{
+          "@type": "Country",
+          "name": "{{ $area }}"
+        }
+      {{ end }}
+    ],
     "category": "{{ $randomCategory }}",
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -173,22 +176,23 @@
           "ratingValue": "{{ $testimonial.rating }}",
           "bestRating": "5",
           "worstRating": "1"
+        },
+        "itemReviewed": {
+          "@type": "Service",
+          "name": "{{ $page.Title }}",
+          "description": "{{ $page.Summary | plainify | truncate 160 }}",
+          "serviceType": "{{ $randomServiceType }}"
         }
       }
       {{ end }}
     ],
-    "keywords": "{{ $allKeywords }}, {{ .Title }}",
-    "termsOfService": {
-      "@type": "DigitalDocument",
-      "name": "Kebijakan Pembatalan",
-      "description": "{{ $randomCancellationPolicy }}"
-    },
+    "searchKeywords": "{{ $allKeywords }}, {{ .Title }}",
+    "termsOfService": "{{ .Site.BaseURL }}pages/terms-of-service",
     "serviceOutput": {
       "@type": "Thing",
       "name": "Hasil",
       "description": "{{ .Site.Params.service_output }}"
-    },
-    "serviceId": "{{ $serviceId }}"
+    }
   }
   </script>
 {{- end }}

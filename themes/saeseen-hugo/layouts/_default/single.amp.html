@@ -42,6 +42,7 @@
   <meta name="twitter:title" content="{{ $ogTitle }}">
   <meta name="twitter:description" content="{{ $ogDescription }}">
   {{- if .IsPage }}
+{{ $page := . }}
   {{- $rating := add 4 (div (math.Mod (mul (now.Unix) 11) 10) 10) -}}
   {{- $ratingCount := add 50 (math.Mod (mul (now.Unix) 13) 951) -}}
   {{- $basePrice := .Site.Params.base_price -}}
@@ -52,8 +53,7 @@
   {{- $randomServiceType := index .Site.Params.service_types (mod (now.Unix) (len .Site.Params.service_types)) -}}
   {{- $randomCategory := index .Site.Params.categories (mod (now.Unix) (len .Site.Params.categories)) -}}
   {{- $randomPayment := index .Site.Params.payment_methods (mod (now.Unix) (len .Site.Params.payment_methods)) -}}
-  {{- $serviceId := printf "SRV-%d" (add 1000 (math.Mod (now.Unix) 9000)) -}}
-  {{- $freeConsultation := .Site.Params.free_consultation -}}
+    {{- $freeConsultation := .Site.Params.free_consultation -}}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,7 +65,6 @@
       "@type": "Organization",
       "name": "{{ .Site.Title }}"
     },
-    "serviceId": "{{ $serviceId }}",
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "IDR",
@@ -74,7 +73,10 @@
       "offerCount": "2",
       "url": "{{ .Permalink }}",
       "availability": "https://schema.org/InStock",
-      "paymentAccepted": ["{{ $randomPayment }}"],
+      "acceptedPaymentMethod": {
+        "@type": "PaymentMethod",
+        "name": "{{ $randomPayment }}"
+      },
       "seller": {
         "@type": "Organization",
         "name": "{{ .Site.Title }}"
@@ -105,7 +107,7 @@
       "bestRating": "5",
       "worstRating": "1"
     },
-    "keywords": "{{ $allKeywords }}, {{ .Title }}",
+    "searchKeywords": "{{ $allKeywords }}, {{ .Title }}",
     "termsOfService": {
       "@type": "DigitalDocument",
       "name": "Kebijakan Pembatalan",
