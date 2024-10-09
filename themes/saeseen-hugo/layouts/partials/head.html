@@ -68,9 +68,16 @@
   ],
   "openingHours": "{{ .Site.Params.opening_hours }}",
   "priceRange": "Rp {{ .Site.Params.base_price }} - Rp {{ .Site.Params.price_range }}",
-  "serviceType": [
-    {{ range $index, $service := .Site.Params.service_types }}
-      {{ if $index }},{{ end }}"{{ $service }}"
+  "makesOffer": [
+    {{ range $index, $materials := .Site.Params.materials }}
+      {{ if $index }},{{ end }}
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "{{ $materials }}"
+        }
+      }
     {{ end }}
   ],
   "additionalType": "https://schema.org/Service",
@@ -85,11 +92,14 @@
       {{ if $index }},{{ end }}"{{ $method }}"
     {{ end }}
   ],
-  "cancellationPolicy": [
-    {{ range $index, $policy := .Site.Params.cancellation_policies }}
-      {{ if $index }},{{ end }}"{{ $policy }}"
-    {{ end }}
-  ]
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "returnPolicyCategory": "https://schema.org/Refundable",
+    "merchantReturnDays": "30",
+    "returnMethod": "https://schema.org/ReturnInStore",
+    "returnFees": "https://schema.org/FreeReturn",
+    "description": "{{ (index .Site.Params.return_policies 0) }}"
+  }
 }
 </script>
 {{- end }}
