@@ -120,13 +120,13 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": ["Service", "Product"],
     "name": "{{ .Title }}",
     "description": "{{ .Summary | plainify | truncate 160 }}",
     "image": "{{ .Params.featured_image | absURL }}",
     "provider": {
-      "@type": "Organization",
-      "name": "{{ .Site.Title }}"
+      "@type": "LocalBusiness",
+      "@id": "{{ .Site.BaseURL }}"
     },
     "serviceType": "{{ $randomServiceType }}",
     "offers": {
@@ -147,12 +147,38 @@
       }
       {{- if $freeConsultation -}}
       ,
-      "additionalProperty": {
-        "@type": "PropertyValue",
-        "name": "FreeConsultation",
-        "value": "Available"
+      "addOn": {
+        "@type": "Offer",
+        "name": "Free Consultation",
+        "price": "0",
+        "priceCurrency": "IDR"
       }
-      {{- end -}}
+      {{- end -}},
+      "review": [
+      {{ range $index, $testimonial := .Site.Data.testimonials.testimonials }}
+      {{- if $index }},{{ end }}
+      {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "{{ $testimonial.name }}"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "{{ $testimonial.rating }}",
+        "bestRating": "5",
+        "worstRating": "1"
+        }
+      }
+      {{ end }}
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ $rating }}",
+        "ratingCount": "{{ $ratingCount }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
     },
     "areaServed": [
       {{ range $index, $area := .Site.Params.area_served }}
@@ -163,26 +189,6 @@
       {{ end }}
     ],
     "category": "{{ $randomCategory }}",
-    "review": {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "{{ $rating }}",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "{{ .Site.Title }}"
-      }
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "{{ $rating }}",
-      "ratingCount": "{{ $ratingCount }}",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "termsOfService": "{{ .Site.BaseURL }}terms-of-service",
     "serviceOutput": {
       "@type": "Thing",
