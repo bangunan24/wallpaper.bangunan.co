@@ -126,7 +126,19 @@
     "image": "{{ .Params.featured_image | absURL }}",
     "provider": {
       "@type": "LocalBusiness",
-      "@id": "{{ .Site.BaseURL }}"
+      "@id": "{{ .Site.BaseURL }}",
+      "name": "{{ .Site.Params.hero_title }}",
+      "image": "{{ .Site.Params.featured_image }}",
+      "telephone": "{{ .Site.Params.telepon | safeURL }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ (index .Site.Params.footer_contact 0).text }}",
+        "addressLocality": "{{ (trim (index (split (index .Site.Params.footer_contact 0).text ",") 1) " ") }}",
+        "addressRegion": "{{ (trim (index (split (index .Site.Params.footer_contact 0).text ",") 2) " ") }}",
+        "postalCode": "16600",
+        "addressCountry": "ID"
+      },
+      "priceRange": "Rp {{ .Site.Params.base_price }} - Rp {{ .Site.Params.price_range }}"
     },
     "serviceType": "{{ $randomServiceType }}",
     "offers": {
@@ -153,12 +165,17 @@
         "price": "0",
         "priceCurrency": "IDR"
       }
-      {{- end -}},
-      "review": [
-      {{ range $index, $testimonial := .Site.Data.testimonials.testimonials }}
-      {{- if $index }},{{ end }}
-      {
+      {{- end -}}
+    },
+    "review": [
+    {{ range $index, $testimonial := .Site.Data.testimonials.testimonials }}
+    {{- if $index }},{{ end }}
+    {
       "@type": "Review",
+      "itemReviewed": {
+        "@type": "Service",
+        "name": "{{ .Title }}"
+      },
       "author": {
         "@type": "Person",
         "name": "{{ $testimonial.name }}"
@@ -168,17 +185,16 @@
         "ratingValue": "{{ $testimonial.rating }}",
         "bestRating": "5",
         "worstRating": "1"
-        }
       }
-      {{ end }}
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "{{ $rating }}",
-        "ratingCount": "{{ $ratingCount }}",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
+    }
+    {{ end }}
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "{{ $rating }}",
+      "ratingCount": "{{ $ratingCount }}",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "areaServed": [
       {{ range $index, $area := .Site.Params.area_served }}
