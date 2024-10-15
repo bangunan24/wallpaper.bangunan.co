@@ -54,16 +54,33 @@
     {{- $randomCategory := index .Site.Params.categories (mod (now.Unix) (len .Site.Params.categories)) -}}
     {{- $randomPayment := index .Site.Params.payment_methods (mod (now.Unix) (len .Site.Params.payment_methods)) -}}
     {{- $freeConsultation := .Site.Params.free_consultation -}}
+    {{- $titleWithoutTag := replaceRE "\\s*\\[.*?\\]\\s*$" "" .Title -}}
+    {{- $titleParts := split $titleWithoutTag " di " -}}
+    {{- $locationParts := split (index $titleParts 1) " " -}}
+    {{- $city := index $locationParts (sub (len $locationParts) 1) -}}
+    {{- $district := "" -}}
+    {{- if gt (len $locationParts) 1 -}}
+    {{- $district = delimit (first (sub (len $locationParts) 1) $locationParts) " " -}}
+    {{- else -}}
+    {{- $district = $city -}}
+    {{- $city = "" -}}
+    {{- end -}}
+    {{- $region := $city -}}
+    {{- if eq $region "" -}}
+    {{- $region = "Indonesia" -}}
+    {{- end -}}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
+      "@type": "LocalBusiness",
       "name": "{{ .Title }}",
       "description": "{{ .Summary | plainify | truncate 160 }}",
       "image": "{{ .Params.featured_image | absURL }}",
-      "provider": {
-        "@type": "Organization",
-        "name": "{{ .Site.Title }}"
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ $district }}",
+        "addressRegion": "{{ $region }}",
+        "addressCountry": "ID"
       },
       "offers": {
         "@type": "AggregateOffer",
@@ -100,6 +117,13 @@
       ],
       "serviceType": "{{ $randomServiceType }}",
       "category": "{{ $randomCategory }}",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ $rating }}",
+        "ratingCount": "{{ $ratingCount }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "review": {
         "@type": "Review",
         "reviewRating": {
@@ -112,13 +136,6 @@
           "@type": "Organization",
           "name": "{{ .Site.Title }}"
         }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "{{ $rating }}",
-        "ratingCount": "{{ $ratingCount }}",
-        "bestRating": "5",
-        "worstRating": "1"
       },
       "termsOfService": "{{ .Site.BaseURL }}terms-of-service",
       "serviceOutput": {
