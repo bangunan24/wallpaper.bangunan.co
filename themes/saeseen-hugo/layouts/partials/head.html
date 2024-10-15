@@ -117,6 +117,21 @@
   {{- $randomPayment := index .Site.Params.payment_methods (mod (now.Unix) (len .Site.Params.payment_methods)) -}}
   {{- $randomCancellationPolicy := index .Site.Params.cancellation_policies (mod (now.Unix) (len .Site.Params.cancellation_policies)) -}}
   {{- $freeConsultation := .Site.Params.free_consultation -}}
+  {{- $titleWithoutTag := replaceRE "\\s*\\[.*?\\]\\s*$" "" .Title -}}
+  {{- $titleParts := split $titleWithoutTag " di " -}}
+  {{- $locationParts := split (index $titleParts 1) " " -}}
+  {{- $city := index $locationParts (sub (len $locationParts) 1) -}}
+  {{- $district := "" -}}
+  {{- if gt (len $locationParts) 1 -}}
+  {{- $district = delimit (first (sub (len $locationParts) 1) $locationParts) " " -}}
+  {{- else -}}
+  {{- $district = $city -}}
+  {{- $city = "" -}}
+  {{- end -}}
+  {{- $region := $city -}}
+  {{- if eq $region "" -}}
+  {{- $region = "Indonesia" -}}
+  {{- end -}}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -132,10 +147,8 @@
       "telephone": "{{ .Site.Params.telepon | safeURL }}",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "{{ (index .Site.Params.footer_contact 0).text }}",
-        "addressLocality": "{{ (trim (index (split (index .Site.Params.footer_contact 0).text ",") 1) " ") }}",
-        "addressRegion": "{{ (trim (index (split (index .Site.Params.footer_contact 0).text ",") 2) " ") }}",
-        "postalCode": "16600",
+        "addressLocality": "{{ $district }}",
+        "addressRegion": "{{ $region }}",
         "addressCountry": "ID"
       },
       "priceRange": "Rp {{ .Site.Params.base_price }} - Rp {{ .Site.Params.price_range }}"
