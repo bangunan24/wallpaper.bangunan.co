@@ -1,59 +1,58 @@
 testimonials:
   - avatar: /images/admin/avatar1.png
-    name: Budi
+    name: Samsul
     message: >-
       Saya memakai jasa pemasangan wallpaper dari wallpaper.bangunan.co untuk
-      hunian saya, dan hasilnya memuaskan sekali. Pemasangannya sangat rapi dan
+      hunian saya, dan hasilnya memuaskan sekali. Pemasangannya rapi dan
       hasilnya tepat seperti yang saya inginkan.
     response: >-
-      Kami sangat menghargai kepercayaan Anda. Senang dapat memberikan layanan
-      terbaik untuk Anda.
+      Terima kasih atas kepercayaannya! Kami gembira dapat memberikan hasil
+      pemasangan wallpaper yang memuaskan untuk hunian Anda.
     rating: 5
   - avatar: /images/admin/avatar2.png
-    name: Ratna
+    name: Rina
     message: >-
-      wallpaper.bangunan.co membantu sekali dalam memilih motif dan proses
-      pemasangan wallpaper di rumah saya. Hasilnya benar-benar rapi dan sesuai
-      dengan keinginan.
+      wallpaper.bangunan.co benar-benar membantu dalam memilih desain dan proses
+      pemasangan wallpaper di rumah saya. Hasilnya rapi sekali dan sesuai
+      harapan.
     response: >-
-      Terima kasih atas feedback. Kami bahagia dapat memberikan hasil yang
+      Terima kasih atas ulasannya. Kami bahagia dapat memberikan layanan yang
       berkualitas untuk Anda.
     rating: 5
   - avatar: /images/admin/avatar3.png
-    name: Samsul
+    name: Budi
     message: >-
-      Hasil pemasangan wallpaper dari wallpaper.bangunan.co rapi sekali dan
-      seperti yang saya harapkan. Pekerjaan diselesaikan dengan efisien dan
-      sangat profesional.
+      Hasil pemasangan wallpaper dari wallpaper.bangunan.co benar-benar rapi dan
+      sesuai dengan harapan. Pekerjaan diselesaikan dengan efisien dan
+      profesional.
     response: >-
-      Terima kasih! Kami berdedikasi memberikan layanan pemasangan wallpaper
-      terbaik dengan hasil yang memuaskan.
+      Terima kasih! Kami berkomitmen memberikan layanan pemasangan wallpaper
+      terbaik dengan hasil yang sesuai harapan.
     rating: 5
   - avatar: /images/admin/avatar4.png
-    name: Eko
-    message: >-
-      Saya sangat puas dengan hasil pasang wallpaper dari wallpaper.bangunan.co.
-      Dinding terlihat lebih segar dan estetik.
-    response: >-
-      Senang mendengar Anda puas dengan layanan kami. Terima kasih atas
-      kepercayaannya!
-    rating: 5
-  - avatar: /images/admin/avatar5.png
-    name: Ika
-    message: >-
-      Pelayanan wallpaper.bangunan.co sangat memuaskan. Hasil pemasangan
-      wallpaper luar biasa dan benar-benar sesuai harapan saya.
-    response: >-
-      Terima kasih! Kami senang dapat membantu mewujudkan proyek pemasangan
-      wallpaper Anda dengan hasil memuaskan.!
-    rating: 5
-  - avatar: /images/admin/avatar6.png
     name: Hendra
     message: >-
-      Proses pemasangan wallpaper dari wallpaper.bangunan.co sangat sesuai
-      dengan keperluan renovasi rumah saya. Pengerjaannya tepat waktu dan sangat
-      baik.
+      Saya sangat puas dengan hasil pemasangan wallpaper dari
+      wallpaper.bangunan.co. Dinding menjadi lebih segar dan estetik.
     response: >-
-      Kami senang mendengar bahwa Anda puas dengan layanan kami. Terima kasih
-      atas ulasannya!
+      Senang mendengar Anda terkesan dengan layanan kami. Terima kasih atas
+      kepercayaan kepada kami!
+    rating: 5
+  - avatar: /images/admin/avatar5.png
+    name: Maya
+    message: >-
+      Pelayanan wallpaper.bangunan.co benar-benar baik. Hasil pemasangan
+      wallpaper berkualitas tinggi dan memenuhi ekspektasi.
+    response: >-
+      Terima kasih! Kami senang dapat membantu mewujudkan proyek pemasangan
+      wallpaper Anda dengan hasil terbaik.!
+    rating: 5
+  - avatar: /images/admin/avatar6.png
+    name: Dedi
+    message: >-
+      Proses pemasangan wallpaper dari wallpaper.bangunan.co benar-benar
+      memenuhi proyek renovasi rumah saya. Pengerjaannya tepat waktu dan rapi.
+    response: >-
+      Terima kasih atas feedback. Kami gembira dapat memberikan hasil yang
+      berkualitas tinggi untuk Anda.
     rating: 5
