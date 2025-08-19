@@ -1,57 +1,59 @@
 testimonials:
   - avatar: /images/admin/avatar1.png
-    name: Samsul
+    name: Eko
     message: >-
-      Saya menggunakan jasa pemasangan wallpaper dari wallpaper.bangunan.co
-      untuk rumah saya, dan hasilnya benar-benar memuaskan. Pemasangannya rapi
-      dan hasilnya benar-benar sesuai ekspektasi.
+      Saya memanfaatkan jasa pasang wallpaper dari wallpaper.bangunan.co untuk
+      rumah saya, dan hasilnya memuaskan sekali. Pemasangannya terlihat
+      profesional dan hasilnya tepat seperti yang saya inginkan.
     response: >-
       Terima kasih atas kepercayaan kepada kami! Kami bahagia dapat memberikan
-      hasil pemasangan wallpaper berkualitas untuk hunian Anda.
+      hasil pemasangan wallpaper yang memuaskan untuk rumah Anda.
     rating: 5
   - avatar: /images/admin/avatar2.png
-    name: Ayu
+    name: Maya
     message: >-
-      wallpaper.bangunan.co sangat membantu dalam memilih desain dan melakukan
-      pemasangan wallpaper di hunian saya. Hasilnya sangat rapi dan sesuai
+      wallpaper.bangunan.co sangat membantu dalam memilih desain dan proses
+      pemasangan wallpaper di rumah saya. Hasilnya rapi sekali dan sesuai
       harapan.
     response: >-
-      Terima kasih atas feedback. Kami gembira dapat memberikan layanan yang
+      Terima kasih atas feedback. Kami gembira dapat memberikan hasil yang
       memuaskan untuk Anda.
     rating: 5
   - avatar: /images/admin/avatar3.png
     name: Rudi
     message: >-
-      Hasil pemasangan wallpaper dari wallpaper.bangunan.co benar-benar rapi dan
-      memenuhi ekspektasi. Pekerjaan diselesaikan tepat waktu dan sangat
+      Hasil pemasangan wallpaper dari wallpaper.bangunan.co rapi sekali dan
+      memenuhi ekspektasi. Pekerjaan diselesaikan dengan efisien dan
       profesional.
     response: >-
-      Terima kasih, atas kepercayaan kepada kami. Kami senang bisa memberikan
-      hasil yang terbaik untuk Anda.
+      Terima kasih! Kami berdedikasi memberikan layanan pemasangan wallpaper
+      berkualitas dengan hasil yang memuaskan.
     rating: 5
   - avatar: /images/admin/avatar4.png
-    name: Agus
+    name: Dedi
     message: >-
       Saya merasa puas dengan hasil pemasangan wallpaper dari
-      wallpaper.bangunan.co. Dinding terlihat lebih segar dan bernilai estetika
+      wallpaper.bangunan.co. Dinding menjadi lebih segar dan bernilai estetika
       tinggi.
-    response: Kami sangat senang mendengar tanggapan Anda. Terima kasih banyak!
+    response: >-
+      Senang mendengar Anda terkesan dengan layanan kami. Terima kasih atas
+      kepercayaan kepada kami!
     rating: 5
   - avatar: /images/admin/avatar5.png
-    name: Rina
+    name: Ratna
     message: >-
-      Pelayanan wallpaper.bangunan.co sangat memuaskan. Hasil pemasangan
-      wallpaper sangat berkualitas dan sesuai dengan yang saya harapkan.
+      Pelayanan wallpaper.bangunan.co memuaskan sekali. Hasil pemasangan
+      wallpaper berkualitas tinggi dan sesuai dengan yang saya harapkan.
     response: >-
-      Terima kasih! Kami senang dapat membantu mewujudkan proyek pemasangan
-      wallpaper Anda dengan hasil memuaskan.!
+      Kami sangat berterima kasih atas tanggapan Anda. Terima kasih atas
+      kepercayaannya!
     rating: 5
   - avatar: /images/admin/avatar6.png
-    name: Samsul
+    name: Fajar
     message: >-
-      Pemasangan wallpaper dari wallpaper.bangunan.co benar-benar memenuhi
-      keperluan renovasi rumah saya. Pengerjaannya tepat waktu dan rapi.
+      Proses pemasangan wallpaper dari wallpaper.bangunan.co sangat sesuai
+      dengan keperluan renovasi rumah saya. Pengerjaannya tepat waktu dan rapi.
     response: >-
-      Kami senang mendengar bahwa Anda sangat senang dengan layanan kami. Terima
-      kasih atas feedback positifnya!
+      Terima kasih atas ulasannya. Kami gembira dapat memberikan hasil yang
+      berkualitas tinggi untuk Anda.
     rating: 5
