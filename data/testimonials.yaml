@@ -1,57 +1,57 @@
 testimonials:
   - avatar: /images/admin/avatar1.png
-    name: Joko
+    name: Rudi
     message: >-
-      Saya memanfaatkan jasa pasang wallpaper dari wallpaper.bangunan.co untuk
-      rumah saya, dan hasilnya memuaskan sekali. Pemasangannya terlihat
+      Saya memakai jasa pemasangan wallpaper dari wallpaper.bangunan.co untuk
+      rumah saya, dan hasilnya benar-benar memuaskan. Pemasangannya terlihat
       profesional dan hasilnya tepat seperti yang saya inginkan.
     response: >-
-      Kami sangat menghargai kepercayaan Anda. Senang dapat memberikan layanan
-      berkualitas untuk Anda.
+      Terima kasih atas kepercayaannya! Kami bahagia dapat memberikan hasil
+      pemasangan wallpaper yang sesuai harapan untuk rumah Anda.
     rating: 5
   - avatar: /images/admin/avatar2.png
-    name: Putri
-    message: >-
-      wallpaper.bangunan.co sangat membantu dalam memilih motif dan proses
-      pemasangan wallpaper di rumah saya. Hasilnya rapi sekali dan sesuai dengan
-      keinginan.
-    response: >-
-      Kami sangat menghargai ulasan Anda! Bahagia mendengar bahwa Anda terkesan
-      dengan hasil pemasangan wallpaper kami.
-    rating: 5
-  - avatar: /images/admin/avatar3.png
-    name: Budi
-    message: >-
-      Hasil pemasangan wallpaper dari wallpaper.bangunan.co rapi sekali dan
-      seperti yang saya harapkan. Pekerjaan dilakukan dengan cepat dan sangat
-      profesional.
-    response: >-
-      Terima kasih, atas kepercayaannya. Kami senang bisa memberikan hasil yang
-      memuaskan untuk Anda.
-    rating: 5
-  - avatar: /images/admin/avatar4.png
-    name: Joko
-    message: >-
-      Saya merasa puas dengan hasil pemasangan wallpaper dari
-      wallpaper.bangunan.co. Dinding terlihat lebih segar dan bernilai estetika
-      tinggi.
-    response: Kami sangat senang mendengar tanggapan Anda. Terima kasih banyak!
-    rating: 5
-  - avatar: /images/admin/avatar5.png
     name: Lina
     message: >-
-      Layanan wallpaper.bangunan.co sangat memuaskan. Hasil pemasangan wallpaper
-      berkualitas tinggi dan sesuai dengan yang saya harapkan.
-    response: >-
-      Kami sangat berterima kasih atas feedback Anda. Terima kasih atas
-      kepercayaannya!
-    rating: 5
-  - avatar: /images/admin/avatar6.png
-    name: Joko
-    message: >-
-      Proses pemasangan wallpaper dari wallpaper.bangunan.co sangat sesuai
-      dengan kebutuhan renovasi rumah saya. Pengerjaannya cepat dan rapi.
+      wallpaper.bangunan.co benar-benar membantu dalam memilih motif dan
+      melakukan pemasangan wallpaper di hunian saya. Hasilnya rapi sekali dan
+      sesuai harapan.
     response: >-
       Terima kasih atas ulasannya. Kami gembira dapat memberikan hasil yang
       memuaskan untuk Anda.
+    rating: 5
+  - avatar: /images/admin/avatar3.png
+    name: Rudi
+    message: >-
+      Hasil pemasangan wallpaper dari wallpaper.bangunan.co sangat rapi dan
+      sesuai dengan harapan. Pekerjaan diselesaikan tepat waktu dan profesional.
+    response: >-
+      Terima kasih! Kami berkomitmen memberikan layanan pemasangan wallpaper
+      berkualitas dengan hasil yang memuaskan.
+    rating: 5
+  - avatar: /images/admin/avatar4.png
+    name: Andi
+    message: >-
+      Saya sangat puas dengan hasil pasang wallpaper dari wallpaper.bangunan.co.
+      Dinding menjadi lebih segar dan estetik.
+    response: >-
+      Senang mendengar Anda senang dengan layanan kami. Terima kasih atas
+      kepercayaannya!
+    rating: 5
+  - avatar: /images/admin/avatar5.png
+    name: Ratna
+    message: >-
+      Pelayanan wallpaper.bangunan.co benar-benar baik. Hasil pemasangan
+      wallpaper luar biasa dan sesuai dengan yang saya harapkan.
+    response: >-
+      Terima kasih! Kami gembira dapat membantu mewujudkan proyek pemasangan
+      wallpaper Anda dengan hasil terbaik.!
+    rating: 5
+  - avatar: /images/admin/avatar6.png
+    name: Eko
+    message: >-
+      Pemasangan wallpaper dari wallpaper.bangunan.co sangat sesuai dengan
+      proyek renovasi rumah saya. Pengerjaannya efisien dan rapi.
+    response: >-
+      Kami senang mendengar bahwa Anda puas dengan layanan kami. Terima kasih
+      atas feedback positifnya!
     rating: 5
