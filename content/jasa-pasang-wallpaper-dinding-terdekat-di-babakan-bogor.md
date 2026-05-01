@@ -1,6 +1,6 @@
 ---
 title: Jasa Pasang Wallpaper Dinding Terdekat di Babakan Bogor
-date: '2025-05-01'
+date: '2026-05-01'
 categories:
   - biaya
 description: >-
