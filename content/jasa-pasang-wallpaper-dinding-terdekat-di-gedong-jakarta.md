@@ -1,6 +1,6 @@
 ---
 title: Jasa Pasang Wallpaper Dinding Terdekat di Gedong Jakarta
-date: '2025-07-01'
+date: '2026-07-01'
 categories:
   - biaya
 description: >-
