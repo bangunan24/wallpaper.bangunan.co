@@ -1,6 +1,6 @@
 ---
 title: Jasa Pasang Wallpaper Dinding Terdekat di Pondok Bambu Jakarta
-date: '2025-08-01'
+date: '2026-08-01'
 categories:
   - biaya
 description: >-

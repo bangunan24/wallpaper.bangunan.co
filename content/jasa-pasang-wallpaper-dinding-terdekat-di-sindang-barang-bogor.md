@@ -1,6 +1,6 @@
 ---
 title: Jasa Pasang Wallpaper Dinding Terdekat di Sindang Barang Bogor
-date: '2025-08-01'
+date: '2026-08-01'
 categories:
   - biaya
 description: >-
