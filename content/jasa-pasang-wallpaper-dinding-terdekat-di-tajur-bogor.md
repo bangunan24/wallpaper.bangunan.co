@@ -1,6 +1,6 @@
 ---
 title: Jasa Pasang Wallpaper Dinding Terdekat di Tajur Bogor
-date: '2025-09-01'
+date: '2026-09-01'
 categories:
   - biaya
 description: >-
